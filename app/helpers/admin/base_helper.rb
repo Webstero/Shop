@@ -1,6 +1,2 @@
-# frozen_string_literal: true
-
-module Admin
-  class BaseHelper
-  end
+module Admin::BaseHelper
 end
