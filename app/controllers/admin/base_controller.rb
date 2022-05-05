@@ -1,11 +1,15 @@
-class Admin::BaseController < ApplicationController
-  layout 'admin'
+# frozen_string_literal: true
 
-  before_action :authenticate
+module Admin
+  class BaseController < ApplicationController
+    layout 'admin'
 
-  def authenticate
-    authenticate_or_request_with_http_basic 'Podaj hasło!' do |name, password|
-      name == 'username' && password == 'secret'
+    before_action :authenticate
+
+    def authenticate
+      authenticate_or_request_with_http_basic 'Podaj hasło!' do |name, password|
+        name == 'username' && password == 'secret'
+      end
     end
   end
 end

@@ -1,18 +1,22 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
-  test "should get idex" do
-    get admin_categories_idex_url
-    assert_response :success
-  end
+require 'test_helper'
 
-  test "should get new" do
-    get admin_categories_new_url
-    assert_response :success
-  end
+module Admin
+  class CategoriesControllerTest < ActionDispatch::IntegrationTest
+    test 'should get idex' do
+      get admin_categories_idex_url
+      assert_response :success
+    end
 
-  test "should get edit" do
-    get admin_categories_edit_url
-    assert_response :success
+    test 'should get new' do
+      get admin_categories_new_url
+      assert_response :success
+    end
+
+    test 'should get edit' do
+      get admin_categories_edit_url
+      assert_response :success
+    end
   end
 end
