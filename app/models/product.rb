@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   belongs_to :category
 
@@ -7,4 +9,8 @@ class Product < ApplicationRecord
   validates :category, presence: true
 
   mount_uploader :photo, ProductPhotoUploader
+
+  def to_param
+    "#{id}-#{name}".parameterize
+  end
 end

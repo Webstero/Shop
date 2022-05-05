@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ProductPhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -33,7 +35,7 @@ class ProductPhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [320, 240]
   end
 
-  version :thumb do
+  version :details do
     process resize_to_fit: [640, 480]
   end
   # Add an allowlist of extensions which are allowed to be uploaded.

@@ -1,5 +1,11 @@
-class Category < ApplicationRecord
-    has_many :products
+# frozen_string_literal: true
 
-    validates :name, presence: true
+class Category < ApplicationRecord
+  has_many :products
+
+  validates :name, presence: true
+
+  def to_param
+    "#{id}-#{name}".parameterize
+  end
 end
