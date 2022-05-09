@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  resource :cart, controller: "cart", only: [:show, :update, :edit] do
+  resource :cart, controller: 'cart', only: %i[show update edit] do
     member do
       post :add_product
       post :remove_product
@@ -8,23 +10,21 @@ Rails.application.routes.draw do
     end
   end
 
-  
   namespace :admin do
     get 'orders/index'
     get 'orders/show'
     root to: 'products#index'
     resources :products
     resources :categories
-    resources :orders, only: [:show, :index, :update]
+    resources :orders, only: %i[show index update]
   end
-  
-  get 'regulamin', to: "static#terms", as: :terms
-  get 'polityka-prywatnosci', to: "static#privacy", as: :privacy
-  get 'dostawa', to: "static#shipping", as: :shipping
-  get 'o-sklepie', to: "static#about", as: :about
-  
-  root to: "products#index"
-  resources :products, only: [:show, :index], path: "produkt"
-  resources :categories, only: [:show], path: "kategoria"
 
+  get 'regulamin', to: 'static#terms', as: :terms
+  get 'polityka-prywatnosci', to: 'static#privacy', as: :privacy
+  get 'dostawa', to: 'static#shipping', as: :shipping
+  get 'o-sklepie', to: 'static#about', as: :about
+
+  root to: 'products#index'
+  resources :products, only: %i[show index], path: 'produkt'
+  resources :categories, only: [:show], path: 'kategoria'
 end

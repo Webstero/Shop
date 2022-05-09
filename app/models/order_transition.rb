@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrderTransition < ApplicationRecord
   include Statesman::Adapters::ActiveRecordTransition
 
