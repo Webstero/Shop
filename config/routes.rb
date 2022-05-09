@@ -10,9 +10,12 @@ Rails.application.routes.draw do
 
   
   namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
     root to: 'products#index'
     resources :products
     resources :categories
+    resources :orders, only: [:show, :index, :update]
   end
   
   get 'regulamin', to: "static#terms", as: :terms
