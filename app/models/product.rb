@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   validates :category, presence: true
 
   mount_uploader :photo, ProductPhotoUploader
+  # serialize :photo, JSON
 
   def to_param
     "#{id}-#{name}".parameterize
