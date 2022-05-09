@@ -10,15 +10,15 @@ print "Product "
     description: Faker::Hacker.say_something_smart,
     long_description: Faker::Lorem.paragraphs(3).join("\n\n"),
     category_id: category_ids.sample,
-    price: Faker::Number.decimal(3, 2)
-  product.remote_photo_url = Faker::Avatar.image(
-    product.name.parameterize,
-    "640x480",
-    "jpg",
-    "set#{[1, 2, 3].sample}",
-    "bg#{[1, 2].sample}"
-  )
-  product.save
+    price: Faker::Number.decimal(l_digits: 3, r_digits: 2)
+  product.photo = Faker::Avatar.image(slug: product.name.parameterize, size: "640x480", format: "jpg", set: "set1", bgset: "bg1")
+  #   product.name.parameterize,
+  #   "640x480",
+  #   "jpg",
+  #   "set#{[1, 2, 3].sample}",
+  #   "bg#{[1, 2].sample}"
+  # )
+  product.save!
   print "."
 end
 puts
